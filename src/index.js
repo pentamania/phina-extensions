@@ -1,0 +1,14 @@
+import Fader from './Fader.js';
+import AfterImage from './AfterImage.js';
+import Drawer from './Drawer.js';
+import ScrollableLabelArea from './ScrollableLabelArea.js';
+import ScrollLayer from './ScrollLayer.js';
+import Sequence from './Sequence.js';
+import extendWorldCollision from './extendWorldCollision.js';
+phina.register('phina.accessory.Fader', Fader);
+phina.register('phina.accessory.AfterImage', AfterImage);
+phina.register('phina.accessory.Drawer', Drawer);
+phina.register('phina.ui.ScrollableLabelArea', ScrollableLabelArea);
+phina.register('phina.display.ScrollLayer', ScrollLayer);
+phina.register('phina.game.Sequence', Sequence);
+phina.register('phina.extendWorldCollision', extendWorldCollision);

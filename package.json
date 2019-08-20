@@ -1,0 +1,32 @@
+{
+  "name": "@pentamania/phina-extensions",
+  "version": "0.1.0",
+  "description": "phina.js extensions for various game projects",
+  "main": "dist/phina-extensions.js",
+  "main_min": "dist/phina-extensions.min.js",
+  "module": "dist/phina-extensions.esm.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "node prebuild && rollup -w -c",
+    "build": "node prebuild && rollup -c",
+    "pack": "npm run build && npm pack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "phina.js"
+  ],
+  "author": "pentamania",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^1.19.4",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-license": "^0.12.1",
+    "rollup-plugin-uglify": "^6.0.2"
+  }
+}
