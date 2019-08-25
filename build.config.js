@@ -31,6 +31,12 @@ module.exports = {
       isDefaultExport: true,
     },
     {
+      name: 'PetalShape',
+      filePath: './PetalShape.js',
+      phinaPath: 'phina.display.PetalShape',
+      isDefaultExport: true,
+    },
+    {
       name: 'Sequence',
       filePath: './Sequence.js',
       phinaPath: 'phina.game.Sequence',
