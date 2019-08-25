@@ -4,5 +4,6 @@ export { default as Drawer } from './Drawer.js';
 export { default as ScrollableLabelArea } from './ScrollableLabelArea.js';
 export { default as ScrollLayer } from './ScrollLayer.js';
 export { default as PetalShape } from './PetalShape.js';
+export { default as AnimationSprite } from './AnimationSprite.js';
 export { default as Sequence } from './Sequence.js';
 export { default as extendWorldCollision } from './extendWorldCollision.js';

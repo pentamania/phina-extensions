@@ -37,6 +37,12 @@ module.exports = {
       isDefaultExport: true,
     },
     {
+      name: 'AnimationSprite',
+      filePath: './AnimationSprite.js',
+      phinaPath: 'phina.display.AnimationSprite',
+      isDefaultExport: true,
+    },
+    {
       name: 'Sequence',
       filePath: './Sequence.js',
       phinaPath: 'phina.game.Sequence',
