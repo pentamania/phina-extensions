@@ -37,6 +37,12 @@ module.exports = {
       isDefaultExport: true,
     },
     {
+      name: 'DashedLineShape',
+      filePath: './DashedLineShape.js',
+      phinaPath: 'phina.display.DashedLineShape',
+      isDefaultExport: true,
+    },
+    {
       name: 'AnimationSprite',
       filePath: './AnimationSprite.js',
       phinaPath: 'phina.display.AnimationSprite',
