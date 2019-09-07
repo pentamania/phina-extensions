@@ -49,6 +49,12 @@ module.exports = {
       isDefaultExport: true,
     },
     {
+      name: 'DebugLabel',
+      filePath: './DebugLabel.js',
+      phinaPath: 'phina.ui.DebugLabel',
+      isDefaultExport: true,
+    },
+    {
       name: 'Sequence',
       filePath: './Sequence.js',
       phinaPath: 'phina.game.Sequence',

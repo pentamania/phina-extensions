@@ -6,5 +6,6 @@ export { default as ScrollLayer } from './ScrollLayer.js';
 export { default as PetalShape } from './PetalShape.js';
 export { default as DashedLineShape } from './DashedLineShape.js';
 export { default as AnimationSprite } from './AnimationSprite.js';
+export { default as DebugLabel } from './DebugLabel.js';
 export { default as Sequence } from './Sequence.js';
 export { default as extendWorldCollision } from './extendWorldCollision.js';
