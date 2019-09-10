@@ -1,7 +1,8 @@
-/**
- * Enables phina.app.Object2D inherited Class the methods related to world-coordinate postion and collision.
- * TODO: test methods
- */
+////////
+// Enables phina.app.Object2D inherited Class the methods related to world-coordinate postion and collision.
+// TODO: test methods
+////////
+
 export var EXTENDED_METHODS = [
   // /**
   //  * template
@@ -165,6 +166,11 @@ export var EXTENDED_METHODS = [
 //   }
 // };
 
+/**
+ * phina.extendWorldCollision
+ *
+ * @return {void}
+ */
 export default function() {
   EXTENDED_METHODS.forEach(function(data) {
     phina.app.Object2D.prototype[data.name] = data.func;

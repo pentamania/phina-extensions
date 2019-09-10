@@ -1,14 +1,5 @@
 /* global phina:false */
 
-/**
- * @typedef {Object} AfterImageParam
- * @property {number} interval? - The inverval of afterimage display.
- * @property {number} poolNum? - Number of pooled afterimage.
- * @property {Object} effectProps? - props for afterImage's fading tweener animation.
- * @property {number} effectDuration? - duration of the tweener animation.
- * @property {number} effectEasing? - easing of the tweener animation.
- */
-
 const DEFAULT_PARAMS = {
   interval: 4,
   poolNum: 22,
@@ -18,13 +9,12 @@ const DEFAULT_PARAMS = {
 }
 
 /**
+ * 対象のSpriteもしくはShapeオブジェクトに残像エフェクトを付与します。（ただしShapeは不完全）<br>
+ * 残像にfilterをかけることもできます。
  * @class phina.accessory.AfterImage
  * @memberOf phina.accessory
  * @extends phina.accessory.Accessory
  *
- * SpriteまたはShapeに残像エフェクトを付加します
- * 第二引数にfilter関数を与えることで、生成した残像テクスチャにfilterをかけることができます。
- * 注：画像が別origin由来のときはエラーになります
  * @example
  * const player = phina.display.Sprite('player').addChildTo(this);
  * const filterFunc = (pixel, i, x, y, imageData)=> {
@@ -33,10 +23,18 @@ const DEFAULT_PARAMS = {
  *   imageData.data[i + 1] *= 0; // g
  *   imageData.data[i + 2] *= 0.8; // b
  * }
- * phina.accessory.AfterImage({interval:8}, filterFunc).attachTo(player);
+ * phina.accessory.AfterImage({
+ *   interval: 8
+ * }, filterFunc).attachTo(player);
  *
- * @param {AfterImageParam} options
- * @param {function} filterFunc
+ * @param {object} [options]
+ *   @param  {number} [options.interval=4] - 残像を表示する間隔
+ *   @param  {number} [options.poolNum=22] - プールする残像オブジェクト数
+ *   @param  {object} [options.effectProps={ alpha: 0 }] - 消え方のパラメータ
+ *   @param  {number} [options.effectDuration=800] - 消える時間
+ *   @param  {number} [options.effectEasing=easeOutCirc] - 消える際のイージング
+ * @param {function} [filterFunc] - 残像にかけるフィルター関数：cross-originによるエラーに注意
+ *
  */
 export default phina.createClass({
   superClass: phina.accessory.Accessory,
@@ -109,7 +107,7 @@ export default phina.createClass({
 
   /**
    * Shapeをcanvasに変換
-   * @private
+   * @protected
    * @instance
    * @memberof phina.accessory.AfterImage
    *
@@ -131,11 +129,11 @@ export default phina.createClass({
    * @instance
    * @memberof phina.accessory.AfterImage
    *
-   * @param {boolean} v
+   * @param {boolean} flag
    * @return {this}
    */
-  setVisible: function(v) {
-    this._showing = Boolean(v);
+  setVisible: function(flag) {
+    this._showing = Boolean(flag);
     return this;
   },
 

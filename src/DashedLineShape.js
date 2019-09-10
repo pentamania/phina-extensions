@@ -12,15 +12,14 @@ var DEFAULT_PARAMS = {
  * @extends phina.display.Shape
  *
  * @example
-    DashedLineShape({
-      width: this.width,
-      segments: [10, 20, 30]
-    })
-      .setPosition(this.width*0.5, 100)
-      .addChildTo(this)
-    ;
+ * DashedLineShape({
+ *   width: 1080,
+ *   segments: [10, 20, 30]
+ * })
+ *   .setPosition(this.width*0.5, 100)
+ *   .addChildTo(this);
  *
- * @param {object} options
+ * @param {DashedLineShapeParams} [options] - phina.display.Shape param with 'segments' option (type: Array &ltnumber&gt)
  */
 export default phina.createClass({
   superClass: phina.display.Shape,

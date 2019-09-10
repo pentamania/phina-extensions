@@ -1,0 +1,20 @@
+/**
+ * @namespace phina
+ */
+
+/**
+ * @namespace display
+ * @memberof phina
+ */
+/**
+ * @namespace accessory
+ * @memberof phina
+ */
+/**
+ * @namespace game
+ * @memberof phina
+ */
+/**
+ * @namespace ui
+ * @memberof phina
+ */

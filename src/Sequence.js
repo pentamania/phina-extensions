@@ -7,10 +7,7 @@
  * @property {Object} arguments -
  */
 
-/**
- * ManagerScene拡張
- * classNameパラメータにcreateClass由来のfunctionも対応する
- */
+// ManagerScene拡張：classNameパラメータにcreateClass由来のfunctionも許容する
 phina.game.ManagerScene.prototype.gotoScene = function(label, args) {
   var index = (typeof label == 'string') ? this.labelToIndex(label) : label||0;
 
@@ -51,27 +48,32 @@ phina.game.ManagerScene.prototype.gotoScene = function(label, args) {
 
 
 /**
+ * ManagerSceneクラスをラップして簡略化。<br>
+ * appのscenesオプションとして渡される前提<br>
+ * 仮なので変更される可能性大。
  * @class phina.game.Sequence
- * ManagerSceneクラスをラップして簡略化
- * appのscenesオプションとして渡される前提
+ * @memberOf phina.game
+ * @extends phina.game.ManagerScene
  *
  * @example
+ * // create sequence
  * phina.define("MainSequence", {
  *   superClass: phina.game.Sequence,
  *   init: function(options) {
  *     this.superInit(options, [
  *       {
  *         label: "stage_999",
- *         className: SingleStageSequence,
+ *         className: "actionScene",
  *         arguments: {
  *           stageId: 999
  *         },
  *       },
- *       ...other scene/sequence
+ *       // ...other scene/sequence
  *     ])
  *   }
  * });
  *
+ * // main
  * var app = phina.game.GameApp({
  *  width: SCREEN_WIDTH,
  *  height: SCREEN_HEIGHT,
@@ -80,16 +82,15 @@ phina.game.ManagerScene.prototype.gotoScene = function(label, args) {
  *     {
  *       label: "mainSeq",
  *       className: 'MainSequence',
- *       arguments: {} // 独自にoptions渡したい場合
+ *       // arguments: {} // 独自にoptions渡したい場合
  *     }
- *     ...other scene/sequence
+ *     // ...other scene/sequence
  *   ]
  * });
  *
  * @param {object} options - appのオプションが渡される（arguments未指定の場合）
- * @param {sceneItem[]} scenes - sceneクラス配列
+ * @param {SceneItem[]} scenes - sceneクラス配列
  */
-// phina.define('phina.game.Sequence', {
 export default phina.createClass({
   superClass: phina.game.ManagerScene,
 

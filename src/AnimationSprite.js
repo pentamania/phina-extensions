@@ -1,10 +1,12 @@
+/* global phina:false */
+
 /**
  * @class phina.display.AnimationSprite
  * @memberOf phina.display
  * @extends phina.display.Sprite
  *
  * @param {string|phina.asset.Texture|phina.graphics.Canvas} image
- * @param {string} ss - the key of the loaded spritesheet data
+ * @param {string} [ss] - the key of the loaded spritesheet data
  */
 export default phina.createClass({
   superClass: phina.display.Sprite,
@@ -16,13 +18,15 @@ export default phina.createClass({
   },
 
   /**
+   * <pre>
    * アニメーションを設定＆再生
    * Set and play specifed animation
+   * </pre>
    * @instance
    * @override
    * @memberof phina.display.AnimationSprite
    *
-   * @param {string} animationType
+   * @param {string} animationType - 定義したアニメーションラベルを指定
    * @return {this}
    */
   setAnimation: function(animationType) {

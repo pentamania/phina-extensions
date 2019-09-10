@@ -6,27 +6,41 @@ var DEFAULT_SCROLL_SPEED = 8;
 var DEFAULT_SCROLL_SLIP_FRICTION = 0.1;
 
 /**
- * @typedef {Object} ScrollLayerParam
- * @extends phinaDisplayElementParam
- * @property {boolean} lockX? - lock x-axis scroll
- * @property {boolean} lockY? - lock y-axis scroll
- * @property {number} scrollSpeed? - the speed of scroll: only for scrollType 'linear'
- * @property {number} scrollFriction? - the friction of slip-scrolling: only for scrollType 'slip'
- * @property {string} scrollType? - choice from SCROLL_TYPES
- */
-
-/**
  * @typedef {Object} Vector2
  * @property {number} x
  * @property {number} y
  */
 
 /**
+ * 対象に合わせて自身の位置を調整し、スクロールしているように見せるレイヤークラス。
  * @class phina.display.ScrollLayer
  * @memberOf phina.display
  * @extends phina.display.DisplayElement
  *
- * @param {ScrollLayerParam} options
+ * @example
+ * phina.globlize();
+ * const SCREEN_WIDTH = 720;
+ * const SCREEN_HEIGHT = 1080;
+ *
+ * // in Scene Class...
+ *
+ * // setup layer
+ * const layer = ScrollLayer({
+ *   lockY: true,
+ * })
+ *   .setCoordinate(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+ *   .addChildTo(this);
+ *
+ * // setup target
+ * this.player = Sprite('player').addChildTo(layer);
+ * layer.setTarget(this.player)
+ *
+ * @param {object} [options] - phina.display.DisplayElementのパラメータも有効です。
+ *   @param {string} [options.scrollType=linear] - スクロールの方法を指定：'instant', 'linear', 'slip'
+ *   @param {number} [options.scrollSpeed=8] - スクロール速度を指定。scrollType:'linear'の時のみ有効
+ *   @param {number} [options.scrollFriction=0.1] - slipスクロール時のフォーカス挙動を指定。scrollType:'slip'の時のみ有効
+ *   @param {boolean} [options.lockX=false] - x軸スクロールを禁止
+ *   @param {boolean} [options.lockY=false] - y軸スクロールを禁止
  */
 export default phina.createClass({
   superClass: phina.display.DisplayElement,
@@ -54,9 +68,11 @@ export default phina.createClass({
   },
 
   /**
+   * <pre>
    * focusTargetがcoordinate座標に来るようレイヤーをずらす
-   * 位置が変わらないときは何もしない、毎フレーム実行
+   * 毎フレーム実行、ただし位置が変わらないときは何もしない
    * Move layer position to focus target, executed every frame
+   * </pre>
    * @instance
    * @private
    * @memberof phina.display.ScrollLayer
@@ -124,7 +140,7 @@ export default phina.createClass({
   },
 
   /**
-   * 注視対象を指定
+   * 注視対象を指定<br>
    * Set focusTarget
    * @instance
    * @memberof phina.display.ScrollLayer
@@ -138,9 +154,9 @@ export default phina.createClass({
   },
 
   /**
-   * 注視対象の画面表示位置をセット
-   * Set coordinate of focusTarget screen position
-   * 例えば画面中心に映したいなら画面サイズ半分を指定
+   * 注視対象の画面表示位置をセット<br>
+   * 例えば画面中心に映したいなら画面サイズ半分を指定する<br>
+   * Set coordinate of focusTarget screen position.
    * layer.setCoordinate(this.width/2, this.height/2)
    * @instance
    * @memberof phina.display.ScrollLayer
@@ -159,8 +175,8 @@ export default phina.createClass({
    * @instance
    * @memberof phina.display.ScrollLayer
    *
-   * @param {boolean} x - lock x-axis
-   * @param {boolean} y - lock y-axis
+   * @param {boolean} x - lock x-axis scroll
+   * @param {boolean} y - lock y-axis scroll
    * @return {this}
    */
   setLock: function(x, y) {

@@ -28,28 +28,26 @@ const DEFAULT_PARAMS = {
 }
 
 /**
+ * 花びら型のShapeクラスを描画します。
  * @class phina.display.PetalShape
  * @memberOf phina.display
  * @extends phina.display.Shape
  *
- * @param {ShapeParams} params
+ * @example
+ * PetalShape() // or phina.display.PetalShape()
+ *   .addChildTo(this)
+ *
+ * @param {object} options - phina.display.Shapeを継承
  */
 export default phina.createClass({
   superClass: phina.display.Shape,
 
-  init: function(params) {
-    params = ({}).$safe(params, DEFAULT_PARAMS);
-    this.superInit(params);
+  init: function(options) {
+    options = ({}).$safe(options, DEFAULT_PARAMS);
+    this.superInit(options);
     this.setBoundingType('circle');
   },
 
-  /**
-   * @instance
-   * @override
-   * @memberof phina.display.PetalShape
-   *
-   * @return {void}
-   */
   prerender: function(canvas) {
     _petalPath.call(canvas, 0, 0, this.radius)
   },

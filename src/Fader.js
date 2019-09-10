@@ -2,26 +2,28 @@
 var Flow = phina.util.Flow;
 
 /**
- * @typedef {Object} OptionParam
- * @property {number} duration? - duration of fading
- * @property {string} easing? - Type of easing
- */
-
-/**
+ * 対象をフェードイン・フェードアウトさせるアニメーションを設定します。
  * @class phina.accessory.Fader
- * @memberOf phina
- * @param  {OptionParam} options
- * @param  {Object} target
+ * @memberOf phina.accessory
+ * @extends phina.accessory.Accessory
+ *
+ * @example
+ * // 対象にattach
+ * const gameStartLabel = Label("Game Start").addChildTo(this);
+ * const fader = Fader().attachTo(gameStartLabel);
+ *
+ * // 明滅させる
+ * fader.pulse()
+ *
+ * @param  {object} [options] - アニメーション設定オプション
+ *   @param  {number} [options.duration=880] - アニメーション持続時間
+ *   @param  {string} [options.easing=easeOutCubic] - アニメーションのイージング
  */
 export default phina.createClass({
   superClass: phina.accessory.Accessory,
 
-  init: function(options, target) {
-    if (target) {
-      this.superInit(target);
-    } else {
-      this.superInit();
-    }
+  init: function(options) {
+    this.superInit();
     options = ({}).$extend({
       duration: 880,
       easing: 'easeOutCubic',
@@ -37,7 +39,12 @@ export default phina.createClass({
   },
 
   /**
-   * @returns {phina.util.Flow}
+   * 対象をフェードインさせます。
+   * 完全に表示されるとfadeinイベントを実行します。
+   * @instance
+   * @memberOf phina.accessory.Fader
+   *
+   * @returns {phina.util.Flow} - Flow(Promise)を返します。
    */
   show: function() {
     this._isShowing = true;
@@ -53,7 +60,12 @@ export default phina.createClass({
   },
 
   /**
-   * @returns {phina.util.Flow}
+   * 対象をフェードアウトさせます。
+   * 完全に消えたときにfadeoutイベントを実行します。
+   * @instance
+   * @memberOf phina.accessory.Fader
+   *
+   * @returns {phina.util.Flow} - Flow(Promise)を返します。
    */
   hide: function() {
     this._isShowing = false;
@@ -69,7 +81,11 @@ export default phina.createClass({
   },
 
   /**
-   * @returns {phina.util.Flow}
+   * 状態に応じてshowもしくはhideを実行します。
+   * @instance
+   * @memberOf phina.accessory.Fader
+   *
+   * @returns {phina.util.Flow} - Flow(Promise)を返します。
    */
   toggle: function() {
     var flow;
@@ -81,14 +97,18 @@ export default phina.createClass({
     return flow;
   },
 
+  /**
+   * 対象を明滅させます。
+   * @instance
+   * @memberOf phina.accessory.Fader
+   *
+   * @returns {void}
+   */
   pulse: function() {
     this.target.alpha = 1.0;
     this._targetTweener.clear()
       .setLoop(true)
       .to({alpha:0}, this.duration, this.easing)
-      // .call(function() {
-      //   this.flare('fadeout');
-      // }.bind(this))
       .to({alpha:1}, this.duration, this.easing)
   },
 

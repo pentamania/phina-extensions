@@ -2,10 +2,21 @@
 var Flow = phina.util.Flow;
 
 /**
- * @class phina.accessory.Drawer
- * targetを開いた状態と閉まった状態を指定してtweenerで切り替える
- * 名前は仮なので変えるかも
+ * 対象に開いた状態と閉まった状態を指定し、tweenerで切り替える機能を付与する。
+ * 名前は仮なので変えるかも…
  * @see https://runstant.com/pentamania/projects/e73be2ef
+ * @class phina.accessory.Drawer
+ * @memberOf phina.accessory
+ * @extends phina.accessory.Accessory
+ *
+ * @example
+ * TODO
+ *
+ * @param  {object} [options] - アニメーション設定オプション
+ *   @param  {number} [options.duration=340] - アニメーション持続時間
+ *   @param  {string} [options.easing=easeOutExpo] - アニメーションのイージング
+ *   @param  {object} [options.showProps] -
+ *   @param  {object} [options.hideProps] -
  */
 export default phina.createClass({
   superClass: phina.accessory.Accessory,
@@ -16,7 +27,6 @@ export default phina.createClass({
       duration: 340,
       // easing: 'easeOutCubic',
       easing: "easeOutExpo",
-      // easing: "Expo",
     }, options);
     this.duration = options.duration;
     this.easing = options.easing;
@@ -33,9 +43,11 @@ export default phina.createClass({
   },
 
   /**
-   * tweenerでshowPropsを設定。
-   * 名前はopenにする？
+   * tweenerでshowPropsを設定、名前はopenにする？
    * flowではなくthisを返すようにする？
+   * @instance
+   * @memberOf phina.accessory.Drawer
+   *
    * @return {phina.util.Flow}
    */
   show: function() {
@@ -54,9 +66,11 @@ export default phina.createClass({
   },
 
   /**
-   * tweenerでhidePropsを設定
-   * 名前はcloseにする？
+   * tweenerでhidePropsをセット、名前はcloseにする？
    * flowではなくthisを返すようにする？
+   * @instance
+   * @memberOf phina.accessory.Drawer
+   *
    * @return {phina.util.Flow}
    */
   hide: function() {
@@ -76,6 +90,9 @@ export default phina.createClass({
 
   /**
    * フラグによってshow/hideを選択実行
+   * @instance
+   * @memberOf phina.accessory.Drawer
+   *
    * @return {phina.util.Flow}
    */
   toggle: function() {
