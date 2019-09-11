@@ -10,6 +10,9 @@
     "dev": "node prebuild && rollup -w -c",
     "build": "node prebuild && rollup -c",
     "pack": "npm run build && npm pack",
+    "doc": "npm run doc:clean && npm run doc:build",
+    "doc:clean": "del-cli docs/",
+    "doc:build": "jsdoc -c jsdoc.conf.json -R README.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
@@ -24,9 +27,13 @@
   "author": "pentamania",
   "license": "MIT",
   "devDependencies": {
+    "@pixi/jsdoc-template": "github:pentamania/pixi-jsdoc-template#phina-custom",
+    "del-cli": "^3.0.0",
+    "jsdoc": "^3.6.3",
     "rollup": "^1.19.4",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-license": "^0.12.1",
     "rollup-plugin-uglify": "^6.0.2"
-  }
+  },
+  "dependencies": {}
 }

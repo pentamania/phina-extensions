@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Source: ScrollLayer.js</title>
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":false,"cleverLinks":false,"applicationName":"phina-extensions","default":{"outputSourceFiles":true}};
+    </script>
+    
+
+    
+</head>
+<body>
+<div id="wrap" class="clearfix">
+    
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html">phina-extensions</a></h3>
+    <button id="menuToggle" class="btn btn-link btn-lg menu-toggle">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+    </button>
+    <div class="search">
+        <input id="search" type="text" class="form-control input-md" placeholder="Search...">
+    </div>
+    <ul class="list">
+    
+        <li class="item" data-name="phina">
+            <span class="title namespace ">
+                
+                <span class="namespaceTag">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                </span>
+                
+                <a href="phina.html">phina</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.accessory">
+            <span class="title namespace ">
+                
+                <span class="namespaceTag">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                </span>
+                
+                <a href="phina.accessory.html">phina.accessory</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.display">
+            <span class="title namespace ">
+                
+                <span class="namespaceTag">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                </span>
+                
+                <a href="phina.display.html">phina.display</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.game">
+            <span class="title namespace ">
+                
+                <span class="namespaceTag">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                </span>
+                
+                <a href="phina.game.html">phina.game</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.ui">
+            <span class="title namespace ">
+                
+                <span class="namespaceTag">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                </span>
+                
+                <a href="phina.ui.html">phina.ui</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="global">
+            <span class="title namespace ">
+                
+                <span class="namespaceTag">
+                    <span class="glyphicon glyphicon-globe"></span>
+                </span>
+                
+                <a href="global.html">Global</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            <span class="subtitle">Typedefs</span>
+            
+                <li class="parent" data-name="SceneItem"><a href="global.html#SceneItem">SceneItem</a></li>
+            
+                <li class="parent" data-name="Vector2"><a href="global.html#Vector2">Vector2</a></li>
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.accessory.AfterImage">
+            <span class="title  ">
+                
+                <a href="phina.accessory.AfterImage.html">phina.accessory.AfterImage</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li class="parent  " data-name="phina.accessory.AfterImage#_toTexture"><a href="phina.accessory.AfterImage.html#_toTexture">_toTexture</a></li>
+            
+                <li class="parent  " data-name="phina.accessory.AfterImage#poolImage"><a href="phina.accessory.AfterImage.html#poolImage">poolImage</a></li>
+            
+                <li class="parent  " data-name="phina.accessory.AfterImage#remove"><a href="phina.accessory.AfterImage.html#remove">remove</a></li>
+            
+                <li class="parent  " data-name="phina.accessory.AfterImage#setVisible"><a href="phina.accessory.AfterImage.html#setVisible">setVisible</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.accessory.Drawer">
+            <span class="title  ">
+                
+                <a href="phina.accessory.Drawer.html">phina.accessory.Drawer</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li class="parent  " data-name="phina.accessory.Drawer#hide"><a href="phina.accessory.Drawer.html#hide">hide</a></li>
+            
+                <li class="parent  " data-name="phina.accessory.Drawer#show"><a href="phina.accessory.Drawer.html#show">show</a></li>
+            
+                <li class="parent  " data-name="phina.accessory.Drawer#toggle"><a href="phina.accessory.Drawer.html#toggle">toggle</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.accessory.Fader">
+            <span class="title  ">
+                
+                <a href="phina.accessory.Fader.html">phina.accessory.Fader</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li class="parent  " data-name="phina.accessory.Fader#hide"><a href="phina.accessory.Fader.html#hide">hide</a></li>
+            
+                <li class="parent  " data-name="phina.accessory.Fader#pulse"><a href="phina.accessory.Fader.html#pulse">pulse</a></li>
+            
+                <li class="parent  " data-name="phina.accessory.Fader#show"><a href="phina.accessory.Fader.html#show">show</a></li>
+            
+                <li class="parent  " data-name="phina.accessory.Fader#toggle"><a href="phina.accessory.Fader.html#toggle">toggle</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.display.AnimationSprite">
+            <span class="title  ">
+                
+                <a href="phina.display.AnimationSprite.html">phina.display.AnimationSprite</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li class="parent  " data-name="phina.display.AnimationSprite#setAnimation"><a href="phina.display.AnimationSprite.html#setAnimation">setAnimation</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.display.DashedLineShape">
+            <span class="title  ">
+                
+                <a href="phina.display.DashedLineShape.html">phina.display.DashedLineShape</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.display.PetalShape">
+            <span class="title  ">
+                
+                <a href="phina.display.PetalShape.html">phina.display.PetalShape</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.display.ScrollLayer">
+            <span class="title  ">
+                
+                <a href="phina.display.ScrollLayer.html">phina.display.ScrollLayer</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li class="parent  " data-name="phina.display.ScrollLayer#setCoordinate"><a href="phina.display.ScrollLayer.html#setCoordinate">setCoordinate</a></li>
+            
+                <li class="parent  " data-name="phina.display.ScrollLayer#setLock"><a href="phina.display.ScrollLayer.html#setLock">setLock</a></li>
+            
+                <li class="parent  " data-name="phina.display.ScrollLayer#setTarget"><a href="phina.display.ScrollLayer.html#setTarget">setTarget</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.game.Sequence">
+            <span class="title  ">
+                
+                <a href="phina.game.Sequence.html">phina.game.Sequence</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.ui.DebugLabel">
+            <span class="title  ">
+                
+                <a href="phina.ui.DebugLabel.html">phina.ui.DebugLabel</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li class="parent  " data-name="phina.ui.DebugLabel#clear"><a href="phina.ui.DebugLabel.html#clear">clear</a></li>
+            
+                <li class="parent  " data-name="phina.ui.DebugLabel#subscribe"><a href="phina.ui.DebugLabel.html#subscribe">subscribe</a></li>
+            
+                <li class="parent  " data-name="phina.ui.DebugLabel#updateLabel"><a href="phina.ui.DebugLabel.html#updateLabel">updateLabel</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="phina.ui.ScrollableLabelArea">
+            <span class="title  ">
+                
+                <a href="phina.ui.ScrollableLabelArea.html">phina.ui.ScrollableLabelArea</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            <span class="subtitle">Members</span>
+            
+                <li class="parent " data-name="phina.ui.ScrollableLabelArea#canvasHeight"><a href="phina.ui.ScrollableLabelArea.html#canvasHeight">canvasHeight</a></li>
+            
+                <li class="parent " data-name="phina.ui.ScrollableLabelArea#textAreaHeight"><a href="phina.ui.ScrollableLabelArea.html#textAreaHeight">textAreaHeight</a></li>
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li class="parent  " data-name="phina.ui.ScrollableLabelArea#addLine"><a href="phina.ui.ScrollableLabelArea.html#addLine">addLine</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+    </ul>
+</div>
+    <div class="main">
+        <h1 class="page-title" data-filename="ScrollLayer.js.html">Source: ScrollLayer.js</h1>
+        
+
+
+    
+    <section>
+        <header>
+            <div class="header content-size">
+                <h2>ScrollLayer.js</h2>
+            </div>
+        </header>
+        <article>
+            <pre id="source-code" class="prettyprint source "><code>/* global phina:false */
+
+var SCROLL_TYPES = ['instant', 'linear', 'slip'];
+var DEFAULT_SCROLL_TYPE = 'linear';
+var DEFAULT_SCROLL_SPEED = 8;
+var DEFAULT_SCROLL_SLIP_FRICTION = 0.1;
+
+/**
+ * @typedef {Object} Vector2
+ * @property {number} x
+ * @property {number} y
+ */
+
+/**
+ * 対象に合わせて自身の位置を調整し、スクロールしているように見せるレイヤークラス。
+ * @class phina.display.ScrollLayer
+ * @memberOf phina.display
+ * @extends phina.display.DisplayElement
+ *
+ * @example
+ * phina.globlize();
+ * const SCREEN_WIDTH = 720;
+ * const SCREEN_HEIGHT = 1080;
+ *
+ * // in Scene Class...
+ *
+ * // setup layer
+ * const layer = ScrollLayer({
+ *   lockY: true,
+ * })
+ *   .setCoordinate(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+ *   .addChildTo(this);
+ *
+ * // setup target
+ * this.player = Sprite('player').addChildTo(layer);
+ * layer.setTarget(this.player)
+ *
+ * @param {object} [options] - phina.display.DisplayElementのパラメータも有効です。
+ *   @param {string} [options.scrollType=linear] - スクロールの方法を指定：'instant', 'linear', 'slip'
+ *   @param {number} [options.scrollSpeed=8] - スクロール速度を指定。scrollType:'linear'の時のみ有効
+ *   @param {number} [options.scrollFriction=0.1] - slipスクロール時のフォーカス挙動を指定。scrollType:'slip'の時のみ有効
+ *   @param {boolean} [options.lockX=false] - x軸スクロールを禁止
+ *   @param {boolean} [options.lockY=false] - y軸スクロールを禁止
+ */
+export default phina.createClass({
+  superClass: phina.display.DisplayElement,
+
+  init: function(options) {
+    options = ({}).$safe(options, {
+      lockX: false,
+      lockY: false,
+      scrollType: DEFAULT_SCROLL_TYPE,
+      scrollSpeed: DEFAULT_SCROLL_SPEED,
+      scrollFriction: DEFAULT_SCROLL_SLIP_FRICTION,
+    });
+    this.superInit(options);
+    this._isLockedX = options.lockX;
+    this._isLockedY = options.lockY;
+    this._scrollType;
+    this._focusTarget = options.focusTarget || phina.geom.Vector2(0, 0);
+    this._coordinate = phina.geom.Vector2(0, 0);
+    if (options.coordinate) this.setCoordinate(options.coordinate.x, options.coordinate.y);
+
+    this.scrollSpeed = options.scrollSpeed;
+    this.scrollFriction = options.scrollFriction;
+    this.scrollType = options.scrollType;
+    this.on('enterframe', this._updatePosition.bind(this));
+  },
+
+  /**
+   * &lt;pre>
+   * focusTargetがcoordinate座標に来るようレイヤーをずらす
+   * 毎フレーム実行、ただし位置が変わらないときは何もしない
+   * Move layer position to focus target, executed every frame
+   * &lt;/pre>
+   * @instance
+   * @private
+   * @memberof phina.display.ScrollLayer
+   *
+   * @return {void}
+   */
+  _updatePosition: function() {
+    var destX = this._coordinate.x - this._focusTarget.x;
+    var destY = this._coordinate.y - this._focusTarget.y;
+    var deltaX = destX - this.x;
+    var deltaY = destY - this.y;
+
+    // x-axis update
+    if (!this._isLockedX &amp;&amp; deltaX !== 0) {
+      switch (this._scrollType) {
+        case "instant":
+          // 瞬時に合わせる
+          this.x = destX;
+          break;
+        case "linear":
+          // 線形移動で合わせる：ちょっとずつ定数加算
+          this.x = (destX > 0)
+            ? Math.min(destX, this.x + this.scrollSpeed)
+            : Math.max(destX, this.x - this.scrollSpeed)
+          break;
+        case "slip":
+          // 滑るように合わせる：差分(目標値 - 現在値) * 0.1 を ちょっとずつ加算することでなめらかに
+          this.x += (destX - this.x) * this.scrollFriction;
+          break;
+        // TODO: custom scrolling feature
+        // case "custom":
+        //   this.customXScroll();
+        //   break;
+
+        default:
+          this.x = destX;
+          break;
+      }
+    }
+
+    // y-axis update
+    if (!this._isLockedY &amp;&amp; deltaY !== 0) {
+      switch (this._scrollType) {
+        case "instant":
+          this.y = destY;
+          break;
+        case "linear":
+          this.y = (destY > 0)
+            ? Math.min(destY, this.y + this.scrollSpeed)
+            : Math.max(destY, this.y - this.scrollSpeed)
+          break;
+        case "slip":
+          this.y += (destY - this.y) * 0.1;
+          break;
+        // TODO: custom scrolling feature
+        // case "custom":
+        //   this.customYScroll();
+        //   break;
+
+        default:
+          this.y = destY;
+          break;
+      }
+    }
+  },
+
+  /**
+   * 注視対象を指定&lt;br>
+   * Set focusTarget
+   * @instance
+   * @memberof phina.display.ScrollLayer
+   *
+   * @param {Vector2} focusTarget
+   * @return {this}
+   */
+  setTarget: function(focusTarget) {
+    this._focusTarget = focusTarget;
+    return this;
+  },
+
+  /**
+   * 注視対象の画面表示位置をセット&lt;br>
+   * 例えば画面中心に映したいなら画面サイズ半分を指定する&lt;br>
+   * Set coordinate of focusTarget screen position.
+   * layer.setCoordinate(this.width/2, this.height/2)
+   * @instance
+   * @memberof phina.display.ScrollLayer
+   *
+   * @param {number} x - X coordinate
+   * @param {number} y - Y coordinate
+   * @return {this}
+   */
+  setCoordinate: function(x, y) {
+    this._coordinate.set(x, y);
+    return this;
+  },
+
+  /**
+   * Lock x or y-axis scrolling
+   * @instance
+   * @memberof phina.display.ScrollLayer
+   *
+   * @param {boolean} x - lock x-axis scroll
+   * @param {boolean} y - lock y-axis scroll
+   * @return {this}
+   */
+  setLock: function(x, y) {
+    this.lockX = x;
+    if (y !== undefined) this.lockY = y
+    return this;
+  },
+
+  _accessor: {
+
+    /**
+     * @property    scrollType
+     */
+    scrollType: {
+      get: function() { return this._scrollType; },
+      set: function(v) {
+        v = v.toLowerCase();
+        if (!SCROLL_TYPES.contains(v)) {
+          console.warn("[phina warn] scroll type '{0}' does not exist.".format(v))
+        }
+        this._scrollType = v;
+      }
+    },
+
+    /**
+     * @property    coordinate
+     * getter only
+     */
+    coordinate: {
+      get: function() { return this._coordinate.clone(); },
+    },
+
+    /**
+     * @property    lock
+     * setter only
+     */
+    lock: {
+      set: function(v) {
+        this._isLockedX = (v === true);
+        this._isLockedY = (v === true);
+      }
+    },
+
+    /**
+     * @property    lockX
+     */
+    lockX: {
+      get: function() { return this._isLockedX; },
+      set: function(v) {
+        this._isLockedX = (v === true);
+      }
+    },
+
+    /**
+     * @property    lockY
+     */
+    lockY: {
+      get: function() { return this._isLockedY; },
+      set: function(v) {
+        this._isLockedY = (v === true);
+      }
+    },
+  },
+
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+
+        
+
+        <footer class="content-size">
+            <div class="footer">
+                Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Thu Sep 12 2019 03:29:47 GMT+0900 (GMT+09:00)
+            </div>
+        </footer>
+    </div>
+</div>
+<script>prettyPrint();</script>
+<script src="scripts/main.js"></script>
+</body>
+</html>
