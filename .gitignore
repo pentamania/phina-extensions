@@ -1,5 +1,7 @@
 # compiled output
 /dist
+/src/index.js
+/src/index.esm.js
 
 # Logs
 logs
