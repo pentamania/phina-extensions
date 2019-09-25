@@ -43,6 +43,12 @@ module.exports = {
       isDefaultExport: true,
     },
     {
+      name: 'FlowerShape',
+      filePath: './FlowerShape.js',
+      phinaPath: 'phina.display.FlowerShape',
+      isDefaultExport: true,
+    },
+    {
       name: 'AnimationSprite',
       filePath: './AnimationSprite.js',
       phinaPath: 'phina.display.AnimationSprite',
