@@ -1,16 +1,16 @@
 @pentamania/phina-extensions
 ===
 
-pentamania's cool extensions for phina.js.  
+Library of cool extensions for phina.js.  
 
 ## Install
 ```npm install @pentamania/phina-extensions```
 
-## Example (ES Modules)
+## Example (ES Modules ver.)
 
 ```js
-import * as phina from 'phina.js';
-import {Fader} from '@pentamania/phina-extensions';
+import phina from 'phina.js'; // add phina to global
+import {Fader} from '@pentamania/phina-extensions'; // import module
 
 phina.define('FadingLabel', {
   superClass: 'phina.display.Label',
@@ -26,7 +26,7 @@ phina.define('FadingLabel', {
 });
 ```
 
-## Example (web)
+## Example (Browser ver.)
 
 ```html
 <script src='path/to/phina.js'></script>
@@ -55,3 +55,75 @@ phina.define('FadingLabel', {
 
 ## Module List
 👉 [https://pentamania.github.io/phina-extensions/](https://pentamania.github.io/phina-extensions/)
+
+## Develop
+
+##### Install development modules
+
+```npm install```
+
+##### Define and Export your own module in src folder
+
+```js
+// src/Hoge.js
+
+/**
+ * [description]
+ * @class phina.ns.Hoge
+ * @memberOf phina.ns
+ * @extends [SuperClass]
+ *
+ * @example
+ * // TODO
+ *
+ * @param {SomeParam} options
+ */
+export default phina.createClass({
+  superClass: phina.ns.[SuperClass],
+
+  init: function(options) {
+    options = ({}).$extend(DEFAULT_PARAMS, options);
+    this.superInit();
+  },
+
+  /**
+   * @instance
+   * @memberof phina.ns.Hoge
+   *
+   * @return {this} - [description]
+   */
+  someMethod: function() {
+    // do something
+    return this;
+  },
+
+});
+```
+
+##### Add your module in ```build.config.js``` moduleList
+
+```js
+module.exports = {
+  moduleList: [
+
+    // ...other modules
+
+    {
+      name: 'Hoge',
+      filePath: './Hoge.js', // root is src 
+      phinaPath: 'phina.ns.Hoge',
+      isDefaultExport: true,
+    },
+  ],
+
+  // ...other options
+}
+```
+
+##### Build!
+
+```npm run build```: build
+
+```npm start```: build + watch
+
+Files are output inside ```dist``` folder.
