@@ -25,7 +25,8 @@ const DEFAULT_PARAMS = {
  * }
  * phina.accessory.AfterImage({
  *   interval: 8
- * }, filterFunc).attachTo(player);
+ * }, filterFunc)
+ * .attachTo(player);
  *
  * @param {object} [options]
  *   @param  {number} [options.interval=4] - 残像を表示する間隔
@@ -80,7 +81,8 @@ export default phina.createClass({
    */
   _emitAfterImage: function() {
     let s = this._pool.find(function(el) { return !el.parent; });
-    if (!s) s = this.poolImage(); // プールに無かったら補充
+    if (!s) return;
+    // if (!s) s = this.poolImage(); // プールに無かったら補充
 
     // reset AfterImage sprite
     s.setPosition(this.target.x, this.target.y)
@@ -162,6 +164,10 @@ export default phina.createClass({
     this.target.detach(this);
     this.target = null;
     this._pool.length = 0; // プール開放
+  },
+
+  _static: {
+    defaults: DEFAULT_PARAMS,
   },
 
 });
