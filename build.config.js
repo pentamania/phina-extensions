@@ -55,6 +55,12 @@ module.exports = {
       isDefaultExport: true,
     },
     {
+      name: 'TiledSprite',
+      filePath: './TiledSprite.js',
+      phinaPath: 'phina.display.TiledSprite',
+      isDefaultExport: true,
+    },
+    {
       name: 'DebugLabel',
       filePath: './DebugLabel.js',
       phinaPath: 'phina.ui.DebugLabel',
