@@ -19,6 +19,12 @@ module.exports = {
       isDefaultExport: true,
     },
     {
+      name: 'Automaton',
+      filePath: './Automaton.js',
+      phinaPath: 'phina.accessory.Automaton',
+      isDefaultExport: true,
+    },
+    {
       name: 'ScrollableLabelArea',
       filePath: './ScrollableLabelArea.js',
       phinaPath: 'phina.ui.ScrollableLabelArea',
