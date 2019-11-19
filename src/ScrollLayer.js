@@ -1,9 +1,14 @@
 /* global phina:false */
 
-var SCROLL_TYPES = ['instant', 'linear', 'slip'];
-var DEFAULT_SCROLL_TYPE = 'linear';
-var DEFAULT_SCROLL_SPEED = 8;
-var DEFAULT_SCROLL_SLIP_FRICTION = 0.1;
+const SCROLL_TYPES = ['instant', 'linear', 'slip'];
+const DEFAULT_PARAMS = {
+  lockX: false,
+  lockY: false,
+  scrollType: 'linear',
+  scrollSpeed: 8,
+  scrollFriction: 0.1,
+  autoUpdate: true,
+}
 
 /**
  * @typedef {Object} Vector2
@@ -41,49 +46,53 @@ var DEFAULT_SCROLL_SLIP_FRICTION = 0.1;
  *   @param {number} [options.scrollFriction=0.1] - slipスクロール時のフォーカス挙動を指定。scrollType:'slip'の時のみ有効
  *   @param {boolean} [options.lockX=false] - x軸スクロールを禁止
  *   @param {boolean} [options.lockY=false] - y軸スクロールを禁止
+ *   @param {boolean} [options.autoUpdate=true] - スクロールを自動で行うかどうか。falseの場合、都度updatePositionを呼び出す必要があります
  */
 export default phina.createClass({
   superClass: phina.display.DisplayElement,
 
   init: function(options) {
-    options = ({}).$safe(options, {
-      lockX: false,
-      lockY: false,
-      scrollType: DEFAULT_SCROLL_TYPE,
-      scrollSpeed: DEFAULT_SCROLL_SPEED,
-      scrollFriction: DEFAULT_SCROLL_SLIP_FRICTION,
-    });
+    options = ({}).$safe(options, DEFAULT_PARAMS);
     this.superInit(options);
     this._isLockedX = options.lockX;
     this._isLockedY = options.lockY;
     this._scrollType;
     this._focusTarget = options.focusTarget || phina.geom.Vector2(0, 0);
     this._coordinate = phina.geom.Vector2(0, 0);
-    if (options.coordinate) this.setCoordinate(options.coordinate.x, options.coordinate.y);
+    if (options.coordinate)
+      this.setCoordinate(options.coordinate.x, options.coordinate.y);
 
     this.scrollSpeed = options.scrollSpeed;
     this.scrollFriction = options.scrollFriction;
     this.scrollType = options.scrollType;
-    this.on('enterframe', this._updatePosition.bind(this));
+    if (options.autoUpdate)
+      this.on('enterframe', this.updatePosition.bind(this));
   },
 
   /**
-   * <pre>
-   * focusTargetがcoordinate座標に来るようレイヤーをずらす
-   * 毎フレーム実行、ただし位置が変わらないときは何もしない
-   * Move layer position to focus target, executed every frame
-   * </pre>
+   * @deprecated since version 0.x
+   * @return {void}
+   */
+  _updatePosition: function() {
+    console.warn("[phina-extensions]: deprecated. updatePosition is no longer private")
+    return this.updatePosition();
+  },
+
+  /**
+   * focusTargetがcoordinate座標に来るようレイヤーそのものをずらす。
+   * 位置が変わらないときは何もしない<br>
+   * Move layer position to focus the specified target
    * @instance
    * @private
    * @memberof phina.display.ScrollLayer
    *
    * @return {void}
    */
-  _updatePosition: function() {
-    var destX = this._coordinate.x - this._focusTarget.x;
-    var destY = this._coordinate.y - this._focusTarget.y;
-    var deltaX = destX - this.x;
-    var deltaY = destY - this.y;
+  updatePosition: function() {
+    const destX = this._coordinate.x - this._focusTarget.x;
+    const destY = this._coordinate.y - this._focusTarget.y;
+    const deltaX = destX - this.x;
+    const deltaY = destY - this.y;
 
     // x-axis update
     if (!this._isLockedX && deltaX !== 0) {
@@ -102,12 +111,14 @@ export default phina.createClass({
           // 滑るように合わせる：差分(目標値 - 現在値) * 0.1 を ちょっとずつ加算することでなめらかに
           this.x += (destX - this.x) * this.scrollFriction;
           break;
+
         // TODO: custom scrolling feature
         // case "custom":
         //   this.customXScroll();
         //   break;
 
         default:
+          // same as instant
           this.x = destX;
           break;
       }
@@ -127,6 +138,7 @@ export default phina.createClass({
         case "slip":
           this.y += (destY - this.y) * 0.1;
           break;
+
         // TODO: custom scrolling feature
         // case "custom":
         //   this.customYScroll();
@@ -239,6 +251,10 @@ export default phina.createClass({
         this._isLockedY = (v === true);
       }
     },
+  },
+
+  _static: {
+    defaults: DEFAULT_PARAMS,
   },
 
 });
