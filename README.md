@@ -1,7 +1,7 @@
 @pentamania/phina-extensions
 ===
 
-Library of cool extensions for phina.js.  
+Cool extensions for phina.js.  
 
 ## Install
 ```npm install @pentamania/phina-extensions```
@@ -9,7 +9,7 @@ Library of cool extensions for phina.js.
 ## Example (ES Modules ver.)
 
 ```js
-import phina from 'phina.js'; // add phina to global
+import phina from 'phina.js'; // import phina
 import {Fader} from '@pentamania/phina-extensions'; // import module
 
 phina.define('FadingLabel', {
@@ -24,28 +24,64 @@ phina.define('FadingLabel', {
     this.fader.hide();
   }
 });
+
+phina.define('MainScene', {
+  superClass: 'phina.display.DisplayScene',
+
+  init: function(options) {
+    this.superInit(options);
+
+    this.label = FadingLabel({
+      text: "Click me to hide",
+      stroke: "black",
+      fill: "white"
+    })
+      .addChildTo(this)
+      .setInteractive(true)
+      .setPosition(this.width*0.5, this.height*0.2)
+      .on('pointstart', function() {
+        this.hide();
+      })
+    ;
+  },
+});
+
+phina.main(function() {
+  var app = phina.game.GameApp({
+    startLabel: 'main',
+    backgroundColor: "skyblue",
+  });
+
+  app.run();
+});
+
 ```
 
 ## Example (Browser ver.)
 
 ```html
+<!-- load phina -->
 <script src='path/to/phina.js'></script>
+
+<!-- load phina-extenstions -->
 <script src='path/to/phina-extensions.js'></script>
+
 <script type="text/javascript">
+  phina.define('FadingLabel', {
+    superClass: 'phina.display.Label',
 
-phina.define('FadingLabel', {
-  superClass: 'phina.display.Label',
+    init: function(options) {
+      this.superInit(options);
+      this.fader = phina.accessory.Fader().attachTo(this);
+    },
 
-  init: function(options) {
-    this.superInit(options);
-    this.fader = phina.accessory.Fader().attachTo(this);
-  },
+    hide: function() {
+      this.fader.hide();
+    },
 
-  hide: function() {
-    this.fader.hide();
-  },
+  });
 
-});
+  /* others are same as ES Modules ver. */
 </script>
 
 ```
@@ -53,12 +89,12 @@ phina.define('FadingLabel', {
 ## CDN
 👉 [https://cdn.jsdelivr.net/npm/@pentamania/phina-extensions@latest/dist/phina-extensions.min.js](https://cdn.jsdelivr.net/npm/@pentamania/phina-extensions@latest/dist/phina-extensions.min.js)
 
-## Module List
-👉 [https://pentamania.github.io/phina-extensions/](https://pentamania.github.io/phina-extensions/)
+## Documentation (Module List)
+👉 [https://pentamania.github.io/phina-extensions-docs/](https://pentamania.github.io/phina-extensions-docs/)
 
-## Develop
+## Development
 
-##### Install development modules
+##### Install dev modules
 
 ```npm install```
 
@@ -120,7 +156,7 @@ module.exports = {
 }
 ```
 
-##### Build!
+##### Build
 
 ```npm run build```: build
 
