@@ -22,7 +22,7 @@ var Flow = phina.util.Flow;
 export default phina.createClass({
   superClass: phina.accessory.Accessory,
 
-  init: function(options) {
+  init(options) {
     this.superInit();
     options = ({}).$extend({
       duration: 880,
@@ -30,12 +30,33 @@ export default phina.createClass({
     }, options);
     this.duration = options.duration;
     this.easing = options.easing;
-
     this._isShowing = true;
+
     this._targetTweener = phina.accessory.Tweener();
-    this.on('attached', function() {
+    this.on('attached', ()=> {
       this._targetTweener.attachTo(this.target);
     })
+    this.on('detached', ()=> {
+      this._targetTweener.remove();
+    })
+  },
+
+  /**
+   * 対象を指定alphaまでフェードさせます。
+   * @instance
+   * @memberOf phina.accessory.Fader
+   *
+   * @param {Number} targetAlpha
+   * @returns {phina.util.Flow} - Flow(Promise)を返します。
+   */
+  fade(targetAlpha) {
+    return Flow((resolve)=> {
+      this._targetTweener.clear()
+        .to({alpha: targetAlpha}, this.duration, this.easing)
+        .call(()=> {
+          resolve();
+        })
+    });
   },
 
   /**
@@ -46,14 +67,13 @@ export default phina.createClass({
    *
    * @returns {phina.util.Flow} - Flow(Promise)を返します。
    */
-  show: function() {
+  show() {
     this._isShowing = true;
-    var self = this;
-    return Flow(function(resolve) {
-      self._targetTweener.clear()
-        .to({alpha:1.0}, self.duration, self.easing)
-        .call(function() {
-          self.flare('fadein');
+    return Flow((resolve)=> {
+      this._targetTweener.clear()
+        .to({alpha:1.0}, this.duration, this.easing)
+        .call(()=> {
+          this.flare('fadein');
           resolve();
         })
     })
@@ -67,14 +87,13 @@ export default phina.createClass({
    *
    * @returns {phina.util.Flow} - Flow(Promise)を返します。
    */
-  hide: function() {
+  hide() {
     this._isShowing = false;
-    var self = this;
-    return Flow(function(resolve) {
-      self._targetTweener.clear()
-        .to({alpha:0}, self.duration, self.easing)
-        .call(function() {
-          self.flare('fadeout');
+    return Flow((resolve)=> {
+      this._targetTweener.clear()
+        .to({alpha:0}, this.duration, this.easing)
+        .call(()=> {
+          this.flare('fadeout');
           resolve();
         })
     })
@@ -87,8 +106,8 @@ export default phina.createClass({
    *
    * @returns {phina.util.Flow} - Flow(Promise)を返します。
    */
-  toggle: function() {
-    var flow;
+  toggle() {
+    let flow;
     if (this._isShowing) {
       flow = this.hide();
     } else {
@@ -104,7 +123,7 @@ export default phina.createClass({
    *
    * @returns {void}
    */
-  pulse: function() {
+  pulse() {
     this.target.alpha = 1.0;
     this._targetTweener.clear()
       .setLoop(true)
