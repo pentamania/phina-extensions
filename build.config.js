@@ -79,6 +79,12 @@ module.exports = {
       isDefaultExport: true,
     },
     {
+      name: 'TransitionScene',
+      filePath: './TransitionScene.js',
+      phinaPath: 'phina.display.TransitionScene',
+      isDefaultExport: true,
+    },
+    {
       name: 'extendWorldCollision',
       filePath: './extendWorldCollision.js',
       phinaPath: 'phina.extendWorldCollision',
