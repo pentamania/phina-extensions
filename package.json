@@ -1,6 +1,6 @@
 {
   "name": "@pentamania/phina-extensions",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "phina.js extensions for various game projects",
   "main": "dist/phina-extensions.js",
   "main_min": "dist/phina-extensions.min.js",
