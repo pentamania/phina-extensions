@@ -4,7 +4,8 @@
   "description": "phina.js extensions for various game projects",
   "main": "dist/phina-extensions.js",
   "main_min": "dist/phina-extensions.min.js",
-  "module": "dist/phina-extensions.esm.js",
+  "module": "lib/phina-extensions.esm.js",
+  "module_es": "es/index.js",
   "scripts": {
     "start": "npm run dev",
     "dev": "node prebuild && rollup -w -c",
@@ -13,7 +14,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "dist"
+    "dist",
+    "lib",
+    "es"
   ],
   "publishConfig": {
     "access": "public"

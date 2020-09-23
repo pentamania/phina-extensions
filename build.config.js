@@ -1,5 +1,6 @@
 module.exports = {
   srcPath: "./src",
-  indexFileOutput_esm: "./src/index.esm.js",
-  indexFileOutput_umd: "./src/index.js",
-}
+  indexFile_esm: "./src/index.esm.js",
+  indexFile_esmAsESClass: "./src/index.esm.es.js",
+  indexFile_umd: "./src/index.js",
+};
